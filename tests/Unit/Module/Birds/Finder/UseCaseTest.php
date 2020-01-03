@@ -10,6 +10,7 @@ use App\Lake\Modules\Birds\Finder\Responses\Status;
 use App\Lake\Modules\Birds\Finder\UseCase;
 use App\Repositories\NotIsADuckRepository;
 use App\Repositories\YellowDuckRepository;
+use App\Lake\Modules\Birds\Finder\Responses\Errors;
 
 class UseCaseTest extends \PHPUnit\Framework\TestCase
 {
@@ -24,6 +25,7 @@ class UseCaseTest extends \PHPUnit\Framework\TestCase
             BirdBoot::getYellowDuckQuantity()
         );
 
+        $this->assertInstanceOf(Response::class, $expectedResponse);
         $this->assertEquals($expectedResponse, $useCase->getResponse());
     }
 
@@ -38,6 +40,7 @@ class UseCaseTest extends \PHPUnit\Framework\TestCase
             BirdBoot::getIsNotADuckQuantity()
         );
 
+        $this->assertInstanceOf(Response::class, $expectedResponse);
         $this->assertEquals($expectedResponse, $useCase->getResponse());
     }
 
@@ -53,6 +56,7 @@ class UseCaseTest extends \PHPUnit\Framework\TestCase
             'An error occurred while search for birds.'
         );
 
+        $this->assertInstanceOf(Errors\Response::class, $expectedResponse);
         $this->assertEquals($expectedResponse, $useCase->getResponse());
     }
 }
