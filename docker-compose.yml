@@ -1,0 +1,17 @@
+version: "2"
+services:
+  php-fpm:
+    build: ./docker/php-fpm
+    container_name: lake-php-fpm
+    working_dir: /application
+    volumes:
+      - .:/application
+      - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+      - ./docker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/php-fpm/conf.d/99-overrides.ini
+    ports:
+      - ${PHP_PORT}:80
+
+networks:
+  default:
+    external:
+      name: ${NETWORK_DEFAULT}
