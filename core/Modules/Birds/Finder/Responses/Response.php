@@ -8,12 +8,12 @@ use App\Lake\Modules\Birds\Finder\Presenters\Responses\ResponsePresenter;
 class Response implements ResponseInterface
 {
     private $status;
-    private $birds;
+    private $duck;
 
-    public function __construct(Status $status, Duck $birds)
+    public function __construct(Status $status, Duck $duck)
     {
         $this->status = $status;
-        $this->birds = $birds;
+        $this->duck = $duck;
     }
 
     public function getStatus(): Status
@@ -23,9 +23,8 @@ class Response implements ResponseInterface
 
     public function getBirds(): Duck
     {
-        return $this->birds;
+        return $this->duck;
     }
-
 
     public function getPresenter(): ResponsePresenter
     {
