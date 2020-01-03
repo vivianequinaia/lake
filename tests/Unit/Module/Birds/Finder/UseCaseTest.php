@@ -2,22 +2,22 @@
 
 namespace Tests\Unit\Module\Birds\Finder;
 
-use App\Lake\Modules\Birds\Finder\Entities\Bird;
-use App\Lake\Modules\Birds\Finder\Exceptions\FindBirdsDatabaseException;
-use App\Lake\Modules\Birds\Finder\Gateways\FindBirdsGateway;
-use App\Lake\Modules\Birds\Finder\Requests\Request;
+use App\Lake\Modules\Birds\Finder\Entities\Duck;
+use App\Lake\Modules\Birds\Finder\Exceptions\CountDucksDatabaseException;
+use App\Lake\Modules\Birds\Finder\Gateways\CountDucksGateway;
 use App\Lake\Modules\Birds\Finder\Responses\Response;
 use App\Lake\Modules\Birds\Finder\Responses\Status;
 use App\Lake\Modules\Birds\Finder\UseCase;
-use App\Repositories\BirdRepository;
+use App\Repositories\NotIsADuckRepository;
+use App\Repositories\YellowDuckRepository;
 
 class UseCaseTest extends \PHPUnit\Framework\TestCase
 {
     public function testYellowDuckSuccess()
     {
-        $repositoryMock = new BirdRepository();
+        $repositoryMock = new YellowDuckRepository();
         $useCase = new UseCase($repositoryMock);
-        $useCase->execute(RequestBoot::getRequestWithColor());
+        $useCase->execute();
 
         $expectedResponse = new Response(
             StatusBoot::getSuccessStatus(),
@@ -29,9 +29,9 @@ class UseCaseTest extends \PHPUnit\Framework\TestCase
 
     public function testIsNotADuckSuccess()
     {
-        $repositoryMock = new BirdRepository();
+        $repositoryMock = new NotIsADuckRepository();
         $useCase = new UseCase($repositoryMock);
-        $useCase->execute(RequestBoot::getEmptyRequest());
+        $useCase->execute();
 
         $expectedResponse = new Response(
             StatusBoot::getSuccessStatus(),
@@ -43,10 +43,10 @@ class UseCaseTest extends \PHPUnit\Framework\TestCase
 
     public function testFindBirdsDatabaseException()
     {
-        $repositoryMock = $this->createMock(FindBirdsGateway::class);
-        $repositoryMock->expects($this->exactly(1))->method('findBirds')->willThrowException(new FindBirdsDatabaseException());
+        $repositoryMock = $this->createMock(CountDucksGateway::class);
+        $repositoryMock->expects($this->exactly(1))->method('countDucks')->willThrowException(new CountDucksDatabaseException());
         $useCase = new UseCase($repositoryMock);
-        $useCase->execute(RequestBoot::getEmptyRequest());
+        $useCase->execute();
 
         $expectedResponse = new \App\Lake\Modules\Birds\Finder\Responses\Errors\Response(
             StatusBoot::getFailureStatus(),
@@ -54,19 +54,6 @@ class UseCaseTest extends \PHPUnit\Framework\TestCase
         );
 
         $this->assertEquals($expectedResponse, $useCase->getResponse());
-    }
-}
-
-Class RequestBoot
-{
-    public static function getEmptyRequest()
-    {
-        return new Request();
-    }
-
-    public static function getRequestWithColor()
-    {
-        return new Request('yellow');
     }
 }
 
@@ -85,13 +72,13 @@ Class StatusBoot
 
 Class BirdBoot
 {
-    public static function getYellowDuckQuantity(): Bird
+    public static function getYellowDuckQuantity(): Duck
     {
-        return new Bird(2);
+        return new Duck(2);
     }
 
-    public static function getIsNotADuckQuantity(): Bird
+    public static function getIsNotADuckQuantity(): Duck
     {
-        return new Bird(3);
+        return new Duck(3);
     }
 }

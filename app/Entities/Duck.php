@@ -2,7 +2,7 @@
 
 namespace App\Entities;
 
-class Bird
+class Duck
 {
     public function getAll()
     {
@@ -33,7 +33,7 @@ class Bird
                 "is_duck" => false
             ],
             5 => [
-                "name" => "gertrudes",
+                "name" => "Cleide",
                 "color" => "red",
                 "is_duck" => true
             ],

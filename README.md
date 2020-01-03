@@ -25,20 +25,18 @@ ou a quantidade de aves que não são patos.
 ```php
 <?php
 
-use App\Repositories\BirdRepository;
-use App\Lake\Modules\Birds\Finder\Requests\Request;
+use App\Repositories\YellowDuckRepository;
 use App\Lake\Modules\Birds\Finder\UseCase;
 
 class TestClass
 {
     public function test()
     {
-        $request = new Request();
         $useCase = new UseCase(
-            new BirdRepository()
+            new YellowDuckRepository()
         );
 
-        $useCase->execute($request);
+        $useCase->execute();
         $useCase->getResponse();
     }
 }

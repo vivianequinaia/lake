@@ -4,15 +4,15 @@ namespace App\Lake\Modules\Birds\Finder\Builders;
 
 use App\Lake\Modules\Birds\Finder\Responses\Response;
 use App\Lake\Modules\Birds\Finder\Responses\Status;
-use App\Lake\Modules\Birds\Finder\Rules\FindBirdsRule;
+use App\Lake\Modules\Birds\Finder\Rules\CountDucksRule;
 
 class Builder
 {
-    private $findBirdsRule;
+    private $countDucksRule;
 
-    public function withFindBirdsRule(FindBirdsRule $findBirdsRule): Builder
+    public function withCountDucksRule(CountDucksRule $countDucksRule): Builder
     {
-        $this->findBirdsRule = $findBirdsRule;
+        $this->countDucksRule = $countDucksRule;
         return $this;
     }
 
@@ -20,7 +20,7 @@ class Builder
     {
         return new Response(
             new Status(200, 'Ok'),
-            $this->findBirdsRule->apply()
+            $this->countDucksRule->apply()
         );
     }
 }

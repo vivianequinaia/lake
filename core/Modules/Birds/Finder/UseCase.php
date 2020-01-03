@@ -3,31 +3,30 @@
 namespace App\Lake\Modules\Birds\Finder;
 
 use App\Lake\Modules\Birds\Finder\Builders\Builder;
-use App\Lake\Modules\Birds\Finder\Exceptions\FindBirdsDatabaseException;
-use App\Lake\Modules\Birds\Finder\Gateways\FindBirdsGateway;
-use App\Lake\Modules\Birds\Finder\Requests\Request;
+use App\Lake\Modules\Birds\Finder\Exceptions\CountDucksDatabaseException;
+use App\Lake\Modules\Birds\Finder\Gateways\CountDucksGateway;
 use App\Lake\Modules\Birds\Finder\Responses\Errors\Response;
 use App\Lake\Modules\Birds\Finder\Responses\ResponseInterface;
 use App\Lake\Modules\Birds\Finder\Responses\Status;
-use App\Lake\Modules\Birds\Finder\Rules\FindBirdsRule;
+use App\Lake\Modules\Birds\Finder\Rules\CountDucksRule;
 
 final class UseCase
 {
-    private $findBirdsGateway;
+    private $countDucksGateway;
     private $response;
 
-    public function __construct(FindBirdsGateway $findBirdsGateway)
+    public function __construct(CountDucksGateway $countDucksGateway)
     {
-        $this->findBirdsGateway = $findBirdsGateway;
+        $this->countDucksGateway = $countDucksGateway;
     }
 
-    public function execute(Request $request)
+    public function execute()
     {
         try {
             $this->response = (new Builder())
-                ->withFindBirdsRule(new FindBirdsRule($this->findBirdsGateway, $request))
+                ->withCountDucksRule(new CountDucksRule($this->countDucksGateway))
                 ->build();
-        } catch (FindBirdsDatabaseException $exception) {
+        } catch (CountDucksDatabaseException $exception) {
             $this->response = new Response(
                 new Status(500, 'Internal Server Error'),
                 'An error occurred while search for birds.'

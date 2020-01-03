@@ -2,7 +2,7 @@
 
 namespace App\Lake\Modules\Birds\Finder\Entities;
 
-class Bird
+class Duck
 {
     private $quantity;
 
