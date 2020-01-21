@@ -50,3 +50,5 @@ Para executar os testes unitários:
 ___
 ### VERSION
 Acesse [VERSION](./VERSION).
+
+Teste
