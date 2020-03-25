@@ -18,7 +18,7 @@ class Duck
                 "is_duck" => true
             ],
             2 => [
-                "name" => "gertrudes",
+                "name" => "cleusa",
                 "color" => "yellow",
                 "is_duck" => true
             ],
@@ -33,7 +33,7 @@ class Duck
                 "is_duck" => false
             ],
             5 => [
-                "name" => "Glorinha",
+                "name" => "rosilda",
                 "color" => "red",
                 "is_duck" => false
             ],
