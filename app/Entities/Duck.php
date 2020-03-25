@@ -28,7 +28,6 @@ class Duck
                 "is_duck" => false
             ],
             4 => [
-
                 "name" => "roberto",
                 "color" => "green",
                 "is_duck" => false
