@@ -24,12 +24,12 @@ class Duck
             ],
             3 => [
                 "name" => "adalberto",
-                "color" => "yellow",
+                "color" => "pink",
                 "is_duck" => false
             ],
             4 => [
                 "name" => "augustinho carrara",
-                "color" => "green",
+                "color" => "blue",
                 "is_duck" => false
             ],
             5 => [
