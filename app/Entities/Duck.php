@@ -23,12 +23,12 @@ class Duck
                 "is_duck" => true
             ],
             3 => [
-                "name" => "adalberto",
+                "name" => "biroliro",
                 "color" => "pink",
                 "is_duck" => false
             ],
             4 => [
-                "name" => "augustinho carrara",
+                "name" => "ze piqueno",
                 "color" => "blue",
                 "is_duck" => false
             ],
