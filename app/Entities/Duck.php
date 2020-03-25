@@ -8,12 +8,12 @@ class Duck
     {
         return [
             0 => [
-                "name" => "josifredo",
+                "name" => "luis",
                 "color" => "blue",
                 "is_duck" => false
             ],
             1 => [
-                "name" => "alfredo",
+                "name" => "rafael",
                 "color" => "yellow",
                 "is_duck" => true
             ],
