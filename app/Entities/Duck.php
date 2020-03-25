@@ -35,7 +35,7 @@ class Duck
             5 => [
                 "name" => "Cleide",
                 "color" => "red",
-                "is_duck" => true
+                "is_duck" => false
             ],
         ];
     }
