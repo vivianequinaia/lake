@@ -26,7 +26,6 @@ class YellowDuckRepository implements CountDucksGateway
                     $count++;
                 }
             }
-
             return new Duck($count);
         } catch (\Exception $exception) {
             throw new CountDucksDatabaseException();
