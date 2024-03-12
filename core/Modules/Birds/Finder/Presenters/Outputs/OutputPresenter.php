@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Lake\Modules\Birds\Finder\Presenters\Responses;
+namespace App\Lake\Modules\Birds\Finder\Presenters\Outputs;
 
 use App\Lake\Modules\Birds\Finder\Outputs\LakeOutput;
 

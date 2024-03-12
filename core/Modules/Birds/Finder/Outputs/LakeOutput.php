@@ -3,7 +3,7 @@
 namespace App\Lake\Modules\Birds\Finder\Outputs;
 
 use App\Lake\Modules\Birds\Finder\Entities\Duck;
-use App\Lake\Modules\Birds\Finder\Presenters\Responses\OutputPresenter;
+use App\Lake\Modules\Birds\Finder\Presenters\Outputs\OutputPresenter;
 use App\Lake\Modules\Generics\Outputs\Interfaces\OutputInterface;
 use App\Lake\Modules\Generics\Outputs\StatusOutput;
 
