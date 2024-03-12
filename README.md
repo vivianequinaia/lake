@@ -22,22 +22,44 @@ ___
 #### Modules/Birds/Finder
 Esse caso de uso é responsável por retornar a quantidade de patos amarelos 
 ou a quantidade de aves que não são patos.
+
 ```php
 <?php
 
 use App\Repositories\YellowDuckRepository;
-use App\Lake\Modules\Birds\Finder\UseCase;
+use App\Lake\Modules\Birds\Finder\LakeUseCase
+use App\Repositories\NotIsADuckRepository;
 
-class TestClass
+class TestController
 {
-    public function test()
+    public function yellow()
     {
-        $useCase = new UseCase(
+        $useCase = new LakeUseCase(
             new YellowDuckRepository()
         );
 
-        $useCase->execute();
-        $useCase->getResponse();
+        $useCase->execute(new LakeInput());
+        $useCase->getOutput();
+        
+        return response()->json(
+            $useCase->getOutput()->getPresenter()->toArray(),
+            $useCase->getOutput()->getStatus()->getCode()
+        );
+    }
+    
+    public function notDuck()
+    {
+        $useCase = new LakeUseCase(
+            new NotIsADuckRepository()
+        );
+
+        $useCase->execute(new LakeInput());
+        $useCase->getOutput();
+        
+        return response()->json(
+            $useCase->getOutput()->getPresenter()->toArray(),
+            $useCase->getOutput()->getStatus()->getCode()
+        );
     }
 }
 ```

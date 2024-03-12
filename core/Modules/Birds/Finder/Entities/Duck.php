@@ -4,7 +4,7 @@ namespace App\Lake\Modules\Birds\Finder\Entities;
 
 class Duck
 {
-    private $quantity;
+    private int $quantity;
 
     public function __construct(int $quantity)
     {

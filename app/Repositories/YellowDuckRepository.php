@@ -4,10 +4,9 @@ namespace App\Repositories;
 
 use App\Lake\Modules\Birds\Finder\Entities\Duck;
 use App\Lake\Modules\Birds\Finder\Exceptions\CountDucksDatabaseException;
-use App\Lake\Modules\Birds\Finder\Gateways\CountDucksGateway;
-use App\Lake\Modules\Birds\Finder\Requests\Request;
+use App\Lake\Modules\Birds\Finder\Gateways\DucksInterface;
 
-class YellowDuckRepository implements CountDucksGateway
+class YellowDuckRepository implements DucksInterface
 {
     private $birds;
 
@@ -28,7 +27,7 @@ class YellowDuckRepository implements CountDucksGateway
             }
             return new Duck($count);
         } catch (\Exception $exception) {
-            throw new CountDucksDatabaseException();
+            throw new CountDucksDatabaseException($exception);
         }
     }
 }

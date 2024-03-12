@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Lake\Modules\Birds\Finder\Responses;
+namespace App\Lake\Modules\Generics\Outputs;
 
-class Status
+class StatusOutput
 {
-    private $code;
-    private $message;
+    private int $code;
+    private string $message;
 
     public function __construct(int $code, string $message)
     {

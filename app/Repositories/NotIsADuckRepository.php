@@ -4,9 +4,9 @@ namespace App\Repositories;
 
 use App\Lake\Modules\Birds\Finder\Entities\Duck;
 use App\Lake\Modules\Birds\Finder\Exceptions\CountDucksDatabaseException;
-use App\Lake\Modules\Birds\Finder\Gateways\CountDucksGateway;
+use App\Lake\Modules\Birds\Finder\Gateways\DucksInterface;
 
-class NotIsADuckRepository implements CountDucksGateway
+class NotIsADuckRepository implements DucksInterface
 {
     private $ducks;
 

@@ -3,13 +3,13 @@
 namespace App\Lake\Modules\Birds\Finder\Rules;
 
 use App\Lake\Modules\Birds\Finder\Entities\Duck;
-use App\Lake\Modules\Birds\Finder\Gateways\CountDucksGateway;
+use App\Lake\Modules\Birds\Finder\Gateways\DucksInterface;
 
 class CountDucksRule
 {
     private $countDucksGateway;
 
-    public function __construct(CountDucksGateway $countDucksGateway)
+    public function __construct(DucksInterface $countDucksGateway)
     {
         $this->countDucksGateway = $countDucksGateway;
     }
